@@ -2,7 +2,7 @@
 import {
   fetchTop100Cryptos,
   fetchSupportedCurrencies,
-} from "../Services/CryptoService.js";
+} from "../services/cryptoService.js";
 
 // Controller function to get the top 100 cryptocurrencies
 const getTop100Cryptos = async (req, res) => {
