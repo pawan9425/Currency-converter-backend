@@ -1,24 +1,24 @@
 // conversionService.js - Service to perform currency conversion
 import axios from "axios";
 
-const convertCurrency = async (source, amount, target) => {
+const convertCurrency = async (sourceCrypto, amount, targetCurrency) => {
   try {
     const response = await axios.get(
-      `https://api.coingecko.com/api/v3/simple/price?ids=${source}&vs_currencies=${target}`
+      `https://api.coingecko.com/api/v3/simple/price?ids=${sourceCrypto}&vs_currencies=${targetCurrency}`
     );
     const data = response.data;
 
-    if (!data[source] || !data[source][target]) {
+    if (!data[sourceCrypto] || !data[sourceCrypto][targetCurrency]) {
       throw new Error("Conversion rate not found");
     }
 
-    const rate = data[source][target];
+    const rate = data[sourceCrypto][targetCurrency];
     const convertedAmount = amount * rate;
-
+    console.log(`success`, convertedAmount);
     return {
-      source,
+      sourceCrypto,
       amount: parseFloat(amount),
-      target,
+      targetCurrency,
       convertedAmount: parseFloat(convertedAmount.toFixed(6)),
     };
   } catch (error) {

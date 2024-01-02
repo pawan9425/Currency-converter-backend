@@ -2,16 +2,17 @@
 import { convertCurrency } from "../Services/ConversionService.js";
 
 const performConversion = async (req, res) => {
-  const { source, amount, target } = req.query;
+  const { sourceCrypto, amount, targetCurrency } = req.query;
 
-  if (!source || !amount || !target) {
-    return res
-      .status(400)
-      .json({ error: "Please provide source, amount, and target parameters" });
+  if (!sourceCrypto || !amount || !targetCurrency) {
+    return res.status(400).json({
+      error:
+        "Please provide sourceCrypto, amount, and targetCurrency parameters",
+    });
   }
 
   try {
-    const result = await convertCurrency(source, amount, target);
+    const result = await convertCurrency(sourceCrypto, amount, targetCurrency);
     res.json(result);
   } catch (error) {
     res.status(500).json({ error: error.message });
