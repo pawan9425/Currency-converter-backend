@@ -3,7 +3,7 @@ import express from "express";
 import {
   getTop100Cryptos,
   getSupportedCurrencies,
-} from "../app/Controllers/cryptoController.js";
+} from "../app/controllers/cryptoController.js";
 
 const router = express.Router();
 

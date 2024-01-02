@@ -1,17 +1,6 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "app.js",
-      "use": "@vercel/node"
-    }
-  ],
-  "routes": [
-    { "src": "/crypto/top100", "dest": "/routes/cryptoRoutes.js" },
-    { "src": "/crypto/supportedCurrencies", "dest": "/routes/cryptoRoutes.js" },
-    { "src": "/conversion/convert", "dest": "/routes/conversionRoutes.js" },
-    { "src": "/crypto/(.*)", "dest": "/app.js" },
-    { "src": "/conversion/(.*)", "dest": "/app.js" },
-    { "src": "/(.*)", "dest": "/app.js" }
-  ]
+  "name": "backend2",
+  "builds": [{ "src": "app.js", "use": "@vercel/node" }],
+  "routes": [{ "src": "/(.*)", "dest": "/app.js" }]
 }

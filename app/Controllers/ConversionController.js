@@ -1,5 +1,5 @@
 // conversionController.js - Controller to handle currency conversion endpoint
-import { convertCurrency } from "../Services/ConversionService.js";
+import { convertCurrency } from "../services/conversionService.js";
 
 // Controller function to perform currency conversion
 const performConversion = async (req, res) => {
