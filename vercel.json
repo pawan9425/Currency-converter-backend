@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "builds": [{ "src": "./app.js", "use": "@vercel/node" }],
+  "routes": [
+    { "src": "/crypto/top100", "dest": "./app.js" },
+    { "src": "/crypto/supportedCurrencies", "dest": "./app.js" },
+    { "src": "/conversion/convert", "dest": "./app.js" },
+    { "src": "/(.*)", "dest": "./app.js" }
+  ]
+}
